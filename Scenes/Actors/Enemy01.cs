@@ -15,4 +15,15 @@ public partial class Enemy01 : Area2D
 	{
         Position += Vector2.Down * Speed * (float)delta;
     }
+
+	private void OnAreaEntered(Area2D body)
+	{
+		if (body is Bullet)
+		{
+			body.Hide();
+			body.QueueFree();
+			Hide();
+			QueueFree();
+		}
+	}
 }

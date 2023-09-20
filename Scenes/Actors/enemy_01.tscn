@@ -51,8 +51,10 @@ metadata/_edit_group_ = true
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_jkdvn")
 autoplay = "default"
-frame_progress = 0.347601
+frame_progress = 0.367469
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_t3vlq")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
