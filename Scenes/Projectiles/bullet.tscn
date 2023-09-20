@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlau8cxlrk4ji"]
+
+[ext_resource type="Texture2D" uid="uid://w56eskyiv3cx" path="res://Assets/Art/Projectiles/M484BulletCollection2.png" id="1_64ahr"]
+[ext_resource type="Script" path="res://Scenes/Projectiles/Bullet.cs" id="1_073ks"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1hgp"]
+radius = 3.0
+height = 8.0
+
+[node name="Bullet" type="Area2D"]
+position = Vector2(209, 750)
+script = ExtResource("1_073ks")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_64ahr")
+region_enabled = true
+region_rect = Rect2(428, 13, 7, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.52588e-05, -5)
+shape = SubResource("CapsuleShape2D_s1hgp")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.09673e-05, 1.23978e-05)
+scale = Vector2(0.399999, 1)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnVisibleOnScreenNotifier2DScreenExited"]

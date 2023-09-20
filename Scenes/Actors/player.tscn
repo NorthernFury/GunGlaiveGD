@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1i60ennogjy5"]
+
+[ext_resource type="Script" path="res://Scenes/Actors/Player.cs" id="1_h55pe"]
+[ext_resource type="Texture2D" uid="uid://cbi0xwwrtpxm" path="res://Assets/Art/Ships/Player/vertical-thrust-01.png" id="2_nsfvl"]
+[ext_resource type="Texture2D" uid="uid://dgb4e8wywwrhj" path="res://Assets/Art/Ships/Player/vertical-thrust-02.png" id="3_liiuy"]
+[ext_resource type="Texture2D" uid="uid://dvbbdjv1x3cwp" path="res://Assets/Art/Ships/Player/vertical-thrust-03.png" id="4_rs43e"]
+[ext_resource type="Texture2D" uid="uid://bat5vovo27px5" path="res://Assets/Art/Ships/Player/vertical-thrust-04.png" id="5_00ckq"]
+[ext_resource type="Texture2D" uid="uid://cgwllh07hqj63" path="res://Assets/Art/Ships/Player/orange_04.png" id="6_l8er0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fnob0"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nsfvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_liiuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rs43e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_00ckq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rs43e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_liiuy")
+}],
+"loop": true,
+"name": &"thrusters",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dk78"]
+size = Vector2(32, 39)
+
+[node name="Player" type="Area2D"]
+position = Vector2(229, 667)
+script = ExtResource("1_h55pe")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, 17)
+sprite_frames = SubResource("SpriteFrames_fnob0")
+animation = &"thrusters"
+autoplay = "thrusters"
+frame_progress = 0.33317
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("6_l8er0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_0dk78")
+
+[node name="WeaponMount" type="Marker2D" parent="."]
+position = Vector2(0, -21)

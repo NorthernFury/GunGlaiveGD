@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Gun Glaive GD": {
+      "commandName": "Project"
+    },
+    "Debug (Native)": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Godot\\Godot_v4.1.1-stable_mono_win64.exe",
+      "commandLineArgs": "--path . --verbose",
+      "workingDirectory": ".",
+      "nativeDebugging": true
+    }
+  }
+}
