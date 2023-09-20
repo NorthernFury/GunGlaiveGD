@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcpjnjmdrakme"]
+
+[ext_resource type="PackedScene" uid="uid://d1i60ennogjy5" path="res://Scenes/Actors/player.tscn" id="1_8n27t"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level01.cs" id="1_t0f43"]
+[ext_resource type="PackedScene" uid="uid://dbwgnhoj4sy48" path="res://Scenes/Controllers/EnemyController.tscn" id="2_kudms"]
+
+[node name="Level01" type="Node2D"]
+script = ExtResource("1_t0f43")
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="EnemyController" parent="." instance=ExtResource("2_kudms")]
+
+[node name="Player" parent="." instance=ExtResource("1_8n27t")]
+position = Vector2(391, 1035)
+
+[connection signal="timeout" from="StartTimer" to="EnemyController" method="OnStartTimerTimeout"]

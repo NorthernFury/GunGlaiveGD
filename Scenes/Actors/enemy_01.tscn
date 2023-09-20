@@ -1,3 +1,58 @@
-[gd_scene format=3 uid="uid://c5j8cidf001in"]
+[gd_scene load_steps=9 format=3 uid="uid://c5j8cidf001in"]
+
+[ext_resource type="Script" path="res://Scenes/Actors/Enemy01.cs" id="1_dhfiq"]
+[ext_resource type="Texture2D" uid="uid://bjo16eb5f8re" path="res://Assets/Art/Ships/Enemies/enemy01.png" id="1_p22s5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqmym"]
+atlas = ExtResource("1_p22s5")
+region = Rect2(4, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gex6"]
+atlas = ExtResource("1_p22s5")
+region = Rect2(52, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84wyy"]
+atlas = ExtResource("1_p22s5")
+region = Rect2(100, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5516"]
+atlas = ExtResource("1_p22s5")
+region = Rect2(148, 0, 40, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkdvn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqmym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gex6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84wyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5516")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3vlq"]
+size = Vector2(30, 21)
 
 [node name="Enemy01" type="Area2D"]
+position = Vector2(359, 496)
+script = ExtResource("1_dhfiq")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_jkdvn")
+autoplay = "default"
+frame_progress = 0.347601
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_t3vlq")
